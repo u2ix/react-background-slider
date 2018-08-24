@@ -2,3 +2,4 @@ lib
 .babelrc
 .gitignore
 webpack.config.js
+example
