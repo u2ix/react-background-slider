@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Dosis', sans-serif;
+  font-size: 18px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 40px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  width: 335px;
+  height: 230px;
+  background-color: rgba(243, 235, 228, 0.51);
+  border-radius: 1px;
+  box-shadow: 1px 6px 8px 0px #615f5f2e;
+}
+
+h1, h2, h3 { margin: 0; }
+
+header h1 > span {
+  color: rgba(90, 87, 84, 0.281);
+  font-size: 0.75em;
+}
+
+header h2 > span, header h3 > span {
+  font-size: 1.75rem;
+  visibility: hidden;
+}
+
+header h3 {
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+a {
+  color: #255681;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a:hover { color: #1b4163; }
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.buttons > a {
+  width: 120px;
+  height: 32px;
+  display: block;
+  line-height: 32px;
+  padding: 6px;
+  border-radius: 1px;
+}
+
+.buttons > a > img {
+  width: 32px;
+  height: 32px;
+  padding: 0 8px 0 4px;
+  vertical-align: middle;
+}
+
+
+.buttons > a:hover {
+  box-shadow: 0 0 8px 0px #33313147;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+footer > a {
+  font-size: 0.68em;
+  display: block;
+  margin-bottom: 5px;
+}
