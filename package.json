@@ -1,6 +1,6 @@
 {
   "name": "react-background-slider",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Simply beautiful react background slideshow",
   "main": "dist/index.js",
   "repository": "https://github.com/u2ix/react-background-slider",
