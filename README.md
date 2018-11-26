@@ -1,10 +1,9 @@
 # React Background Slider
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![npm version](https://badge.fury.io/js/react-background-slider.svg)](https://www.npmjs.com/package/react-background-slider)
 
 Simply beautiful background image slider for React 🌅
 
 [️➡️ DEMO](https://u2ix.github.io/react-background-slider)
-
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![npm version](https://badge.fury.io/js/react-background-slider.svg)](https://www.npmjs.com/package/react-background-slider)
 
 ## Intro
 
