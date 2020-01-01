@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode=production",
-    "lint": "standard"
+    "lint": "eslint lib"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
@@ -16,24 +16,21 @@
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
     "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-standard": "^4.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "standard": "^14.3.1",
-    "webpack": "^4.41.5",
+    "webpack": "4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"
-  },
-  "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
   },
   "dependencies": {
     "css-vendor": "^2.0.7",
     "prop-types": "^15.7.2"
-  },
-  "standard": {
-    "ignore": [
-      "/example/"
-    ]
   }
 }
