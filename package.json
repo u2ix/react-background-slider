@@ -11,25 +11,25 @@
     "lint": "standard"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.5",
-    "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.1.6",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.4",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "standard": "^12.0.1",
-    "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2",
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "babel-loader": "^8.0.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "standard": "^14.3.1",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"
   },
   "peerDependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "dependencies": {
-    "css-vendor": "^1.1.0",
-    "prop-types": "^15.6.2"
+    "css-vendor": "^2.0.7",
+    "prop-types": "^15.7.2"
   },
   "standard": {
     "ignore": [

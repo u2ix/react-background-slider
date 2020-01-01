@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.6.3",
-    "react-background-slider": "^1.1.0",
-    "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react": "^16.12.0",
+    "react-background-slider": "^1.2.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -16,12 +16,7 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1"
-  },
-  "standard": {
-    "ignore": [
-      "/src/registerServiceWorker.js"
-    ]
+    "gh-pages": "^2.1.1"
   },
   "browserslist": [
     ">0.2%",
