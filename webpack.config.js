@@ -1,7 +1,8 @@
 const path = require('path')
 
 module.exports = {
-  entry: path.resolve(__dirname, 'lib/index.js'),
+  mode: 'production',
+  entry: path.resolve(__dirname, 'lib/BackgroundSlider.js'),
   output: {
     path: path.resolve(__dirname, 'dist/'),
     filename: 'index.js',
@@ -14,11 +15,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        test: /\.js(x?)$/,
+        exclude: /node_modules|bower_components|example/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env', '@babel/react']
+          presets: ['@babel/env', '@babel/react']
         }
       },
       {
