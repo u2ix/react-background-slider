@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import BackgroundSlider from 'react-background-slider'
+import BackgroundSlider from '../../lib/BackgroundSlider'
 
 import Card from './Card'
 
@@ -11,7 +11,7 @@ import image5 from './assets/image5.jpg'
 import image6 from './assets/image6.jpg'
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <div className='App'>
         <div className='card-container'>
