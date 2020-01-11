@@ -3,3 +3,4 @@ lib
 .gitignore
 webpack.config.js
 example
+.github
