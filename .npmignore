@@ -4,3 +4,8 @@ lib
 webpack.config.js
 example
 .github
+cypress.json
+cypress
+dist-example
+webpack.*
+tsconfig.json
