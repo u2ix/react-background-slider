@@ -44,15 +44,14 @@ The component will start with the first image.
 
 ## [Demo](https://u2ix.github.io/react-background-slider)
 
-This repo comes with an example [create-react-app](https://github.com/facebookincubator/create-react-app) under `example/` that can be run locally to experiment with the component. This demo is also hosted [here](https://u2ix.github.io/react-background-slider).
+This repo comes with an example application under `example/` that can be run locally to experiment with the component. This demo is also hosted [here](https://u2ix.github.io/react-background-slider).
 
+**To launch the demo app**
 ```bash
-cd example
-npm install
 npm start
 ```
 
-This will start the create-react-app dev server locally on port 3000 and open the demo app in your default browser.
+This will start the webpack dev server [locally on port 9000](http://localhost:9000).
 
 ## License
 
