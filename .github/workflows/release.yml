@@ -24,3 +24,11 @@ jobs:
       - name: npm publish
         run: |
           npm publish
+      - name: build demo page
+        run: npm run build:demo
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: dist-example
