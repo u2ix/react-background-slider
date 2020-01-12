@@ -4,9 +4,9 @@ Demo of the [React Background Slider](https://github.com/u2ix/react-background-s
 
 ## Image Credits
 
-Photo by Molly Martirez on Unsplash(https://unsplash.com/photos/88MqyyeY7Vw)
-Photo by Jordan Whitt on Unsplash(https://unsplash.com/photos/keSFbPQAJRE)
-Photo by Ethan Robertson on Unsplash(https://unsplash.com/photos/CcETP4gFBTU)
-Photo by Amber Teasley on Unsplash(https://unsplash.com/photos/u0cSubf5F-E)
-Photo by Heejing KIM on Unsplash(https://unsplash.com/photos/TqaFGqxiCQo)
-Photo by Rich Dahlgren on Unsplash(https://unsplash.com/photos/3OvE-4rgpTc)
+Photos on Unsplash by [Molly Martinez](https://unsplash.com/photos/88MqyyeY7Vw),
+[Jordan Whitt](https://unsplash.com/photos/keSFbPQAJRE),
+[Ethan Robertson](https://unsplash.com/photos/CcETP4gFBTU),
+[Amber Teasley](https://unsplash.com/photos/u0cSubf5F-E),
+[Heejing KIM](https://unsplash.com/photos/TqaFGqxiCQo)
+and [Rich Dahlgren](https://unsplash.com/photos/3OvE-4rgpTc)

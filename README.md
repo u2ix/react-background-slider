@@ -1,4 +1,5 @@
 # React Background Slider
+
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![npm version](https://badge.fury.io/js/react-background-slider.svg)](https://www.npmjs.com/package/react-background-slider)
 
 Simply beautiful background image slider for React 🌅
@@ -13,16 +14,17 @@ I've personally used it for several projects as the background for login / signu
 
 ## Install
 
-```
-# npm
-$ npm install --save react-background-slider
-# yarn
-$ yarn add react-background-slider
+```bash
+# use npm
+npm install --save react-background-slider
+
+# use yarn
+yarn add react-background-slider
 ```
 
 ## Usage
 
-```
+```javascript
 import BackgroundSlider from 'react-background-slider'
 
 <BackgroundSlider
@@ -34,7 +36,7 @@ import BackgroundSlider from 'react-background-slider'
 
 ### BackgroundSlider
 
-- `props.images` - array<string>, *required* array of images to transition between.
+- `props.images` - string[], *required* array of images to transition between.
 - `props.duration` - number, duration of which each image is displayed (default `10`)
 - `props.transition` - number, duration of the transition (default `2`)
 
