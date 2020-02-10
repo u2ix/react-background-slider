@@ -50,7 +50,7 @@
     "react-dom": "^16.12.0"
   },
   "dependencies": {
-    "css-vendor": "^1.2.1",
+    "css-vendor": "^2.0.7",
     "prop-types": "^15.7.2"
   },
   "standard": {
