@@ -10,22 +10,18 @@ import image4 from './assets/image4.jpg'
 import image5 from './assets/image5.jpg'
 import image6 from './assets/image6.jpg'
 
-class App extends Component {
-  render() {
-    return (
-      <div className='App'>
-        <div className='card-container'>
-          <Card />
-        </div>
+const App = () => (
+  <div className='App'>
+    <div className='card-container'>
+      <Card />
+    </div>
 
-        <BackgroundSlider
-          images={[image1, image2, image3, image4, image5, image6]}
-          duration={8}
-          transition={2}
-        />
-      </div>
-    )
-  }
-}
+    <BackgroundSlider
+      images={[image1, image2, image3, image4, image5, image6]}
+      duration={8}
+      transition={2}
+    />
+  </div>
+);
 
-export default App
+export default App;

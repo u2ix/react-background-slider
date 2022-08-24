@@ -3,8 +3,14 @@ import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import CopyPlugin from 'copy-webpack-plugin'
+import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
+
+const devServer: DevServerConfiguration = {
+  port: 9000,
+};
 
 const exampleConfig: webpack.Configuration = {
+  mode: 'development',
   entry: path.resolve(__dirname, 'example/src/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist-example/'),
@@ -39,16 +45,14 @@ const exampleConfig: webpack.Configuration = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'example/public/index.html')
     }),
-    new CopyPlugin([
-      { from: 'example/public/favicon.ico', to: 'favicon.ico' },
-      { from: 'example/public/favicon.png', to: 'favicon.png' },
-      { from: 'example/public/manifest.json', to: 'manifest.json' }
-    ])
+    new CopyPlugin({
+      patterns: [
+        { from: 'example/public/favicon.ico', to: 'favicon.ico' },
+        { from: 'example/public/favicon.png', to: 'favicon.png' },
+        { from: 'example/public/manifest.json', to: 'manifest.json' },
+      ]})
   ],
-  devServer: {
-    contentBase: path.join(__dirname, 'dist-example'),
-    port: 9000,
-  }
+  devServer,
 }
 
 export default exampleConfig
