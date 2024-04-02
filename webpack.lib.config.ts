@@ -7,11 +7,13 @@ const libraryConfig: webpack.Configuration = {
   output: {
     path: path.resolve(__dirname, 'dist/'),
     filename: 'index.js',
-    library: 'react-background-slider',
-    libraryTarget: 'commonjs2'
+    library: {
+      name: 'react-background-slider',
+      type: 'umd',
+    }
   },
   externals: {
-    react: 'react'
+    React: 'react'
   },
   module: {
     rules: [
