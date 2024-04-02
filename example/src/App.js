@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import BackgroundSlider from '../../lib/BackgroundSlider'
 
 import Card from './Card'
+import UsageCard from './UsageCard'
+import Footer from './Footer'
 
 import image1 from './assets/image1.jpg'
 import image2 from './assets/image2.jpg'
@@ -15,6 +17,12 @@ const App = () => (
     <div className='card-container'>
       <Card />
     </div>
+
+    <div className='card-container'>
+      <UsageCard />
+    </div>
+
+    <Footer />
 
     <BackgroundSlider
       images={[image1, image2, image3, image4, image5, image6]}
