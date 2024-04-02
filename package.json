@@ -4,7 +4,10 @@
   "description": "Simply beautiful react background slideshow",
   "main": "dist/index.js",
   "typings": "index.d.ts",
-  "repository": "https://github.com/u2ix/react-background-slider",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/u2ix/react-background-slider.git"
+  },
   "author": "Demian Gemperli",
   "license": "MIT",
   "scripts": {
