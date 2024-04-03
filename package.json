@@ -1,6 +1,6 @@
 {
   "name": "react-background-slider",
-  "version": "4.0.0-next.0",
+  "version": "4.0.0-next.1",
   "description": "Simply beautiful react background slideshow",
   "main": "dist/index.js",
   "module": "lib/index.js",
