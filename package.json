@@ -3,6 +3,7 @@
   "version": "4.0.0-next.0",
   "description": "Simply beautiful react background slideshow",
   "main": "dist/index.js",
+  "module": "lib/index.js",
   "typings": "index.d.ts",
   "repository": {
     "type": "git",
