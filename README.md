@@ -42,9 +42,6 @@ import BackgroundSlider from 'react-background-slider'
 
 The component will start with the first image.
 
-## Compatibility
-The *>2.0.0* version of this library requires React **>16.8**.
-
 ## [Demo](https://u2ix.github.io/react-background-slider)
 
 This repo comes with an example application under `example/` that can be run locally to experiment with the component. This demo is also hosted [here](https://u2ix.github.io/react-background-slider).

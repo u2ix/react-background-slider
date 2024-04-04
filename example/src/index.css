@@ -21,13 +21,19 @@ body {
   align-items: center;
   padding: 30px;
   width: 335px;
-  height: 230px;
-  background-color: rgba(243, 235, 228, 0.51);
+  background-color: rgba(243, 235, 228, 0.80);
   border-radius: 1px;
   box-shadow: 1px 6px 8px 0px #615f5f2e;
 }
 
+.card.big {
+  width: 500px;
+}
+
 h1, h2, h3 { margin: 0; }
+h3 {
+  font-size: 1.1em;
+}
 
 header h1 > span {
   color: rgba(90, 87, 84, 0.281);
@@ -47,6 +53,13 @@ header h3 {
 a {
   color: #255681;
   text-decoration: none;
+}
+
+a.nohighlight {
+  color: rgba(90, 87, 84, 0.281);
+}
+
+a.upper {
   text-transform: uppercase;
 }
 
@@ -80,16 +93,26 @@ a:hover { color: #1b4163; }
 }
 
 footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
   display: flex;
   justify-content: center;
+  background-color: rgba(243, 235, 228, 0.80);
+  padding: 2px 0;
+  margin-top: 20%;
 }
 
 footer > a {
   font-size: 0.68em;
-  display: block;
-  margin-bottom: 5px;
+}
+
+code {
+  font-size: 0.8em;
+  color: hsl(80,80.5%,26.5%);
+}
+
+.toggle {
+  padding: 6px 4px;
+}
+.toggle:hover {
+  background-color: #255681;
+  cursor: pointer;
 }
