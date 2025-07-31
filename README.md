@@ -2,7 +2,7 @@
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![npm version](https://badge.fury.io/js/react-background-slider.svg)](https://www.npmjs.com/package/react-background-slider)
 
-> **⚠️ PROJECT ARCHIVED** - This project has been archived as of 2024. Modern CSS has evolved significantly and background image sliders can now be implemented with pure CSS using features like `@keyframes`, `animation`, and `background-image` with multiple values. Consider using native CSS solutions instead:
+> **⚠️ PROJECT ARCHIVED** - This project has been archived as of 2025. Modern CSS has evolved significantly and background image sliders can now be implemented with pure CSS using features like `@keyframes`, `animation`, and `background-image` with multiple values. Consider using native CSS solutions instead:
 >
 > - [CSS Animation Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) on MDN
 > 
