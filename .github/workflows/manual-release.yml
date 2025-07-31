@@ -1,0 +1,105 @@
+name: Manual Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_type:
+        description: 'Version bump type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      release_notes:
+        description: 'Release notes (optional)'
+        required: false
+        type: string
+        default: ''
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      
+      - name: Bump version
+        id: version-bump
+        run: |
+          OLD_VERSION=$(node -p "require('./package.json').version")
+          echo "old_version=$OLD_VERSION" >> $GITHUB_OUTPUT
+          
+          npm version ${{ github.event.inputs.version_type }} --no-git-tag-version
+          
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "Bumped version from $OLD_VERSION to $NEW_VERSION"
+      
+      - name: Create version bump commit
+        run: |
+          git add package.json package-lock.json
+          git commit -m "chore: bump version to ${{ steps.version-bump.outputs.new_version }}"
+          git push
+      
+      - name: npm build  🔧
+        run: |
+          npm i
+          npm run build
+      
+      - name: Publish package on npm
+        run: |
+          npm publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.version-bump.outputs.new_version }}
+          release_name: Release v${{ steps.version-bump.outputs.new_version }}
+          body: |
+            ## What's Changed
+            
+            Version bumped from ${{ steps.version-bump.outputs.old_version }} to ${{ steps.version-bump.outputs.new_version }}
+            
+            ${{ github.event.inputs.release_notes }}
+            
+            ### 📦 Package Updates
+            - Version: ${{ steps.version-bump.outputs.old_version }} → ${{ steps.version-bump.outputs.new_version }}
+            
+            ### 🔧 Build
+            - Automated build and test
+            - NPM package published
+          draft: false
+          prerelease: false
+      
+      - name: Build demo page 🔧
+        run: npm run build:demo
+      
+      - name: Deploy Github Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist-example 

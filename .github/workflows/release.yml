@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '**.md'
+      - '.github/workflows/build.yml'
 
 jobs:
   release:
@@ -14,6 +17,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
@@ -21,17 +28,83 @@ jobs:
           registry-url: https://registry.npmjs.org
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      
+      - name: Check if version bump is needed
+        id: version-check
+        run: |
+          # Get the current version from package.json
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          
+          # Get the latest tag
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
+          
+          # Check if version has changed
+          if [[ "$LATEST_TAG" == "v$CURRENT_VERSION" ]]; then
+            echo "needs_bump=true" >> $GITHUB_OUTPUT
+            echo "Version needs to be bumped from $CURRENT_VERSION"
+          else
+            echo "needs_bump=false" >> $GITHUB_OUTPUT
+            echo "Version $CURRENT_VERSION is already tagged"
+          fi
+      
+      - name: Bump version (patch)
+        if: steps.version-check.outputs.needs_bump == 'true'
+        run: |
+          npm version patch --no-git-tag-version
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "Bumped version to $NEW_VERSION"
+      
+      - name: Create version bump commit
+        if: steps.version-check.outputs.needs_bump == 'true'
+        run: |
+          git add package.json package-lock.json
+          git commit -m "chore: bump version to ${{ steps.version-check.outputs.new_version }}"
+          git push
+      
       - name: npm build  🔧
         run: |
           npm i
           npm run build
+      
       - name: Publish package on npm
         run: |
           npm publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Create GitHub Release
+        if: steps.version-check.outputs.needs_bump == 'true'
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.version-check.outputs.new_version }}
+          release_name: Release v${{ steps.version-check.outputs.new_version }}
+          body: |
+            ## What's Changed
+            
+            This is an automated release with version bump to ${{ steps.version-check.outputs.new_version }}
+            
+            ### 📦 Package Updates
+            - Version bumped from ${{ steps.version-check.outputs.current_version }} to ${{ steps.version-check.outputs.new_version }}
+            
+            ### 🔧 Build
+            - Automated build and test
+            - NPM package published
+          draft: false
+          prerelease: false
+      
       - name: Build demo page 🔧
         run: npm run build:demo
+      
       - name: Deploy Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
